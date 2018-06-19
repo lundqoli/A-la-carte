@@ -7,32 +7,30 @@
     
     <body>
         <h1>Raaka-aineet</h1>
-        
+        <p> Lista jo olemassa olevista raaka-aineista:</p>
         
         
         <ul>
             <li th:each="arvo : ${lista}">
                 <p>
                 <span th:text="${arvo.nimi}"> </span>
-                <form method = "POST" th:action="@{~/raakaaine/{arvoId}/delete(arvoId=${arvo.id})}"><input type="submit" value="Poista raaka-aine" /></form>
+                <form method = "POST" th:action="@{~/raakaaine/{arvoId}/delete(arvoId=${arvo.id})}"><input type="submit" value="Poista" /></form>
                 </p>
             </li>
         </ul>
         
+        <br>
+        <p> Lisää raakaaineita:</p>
         <form method="POST" action="/raakaaine">
-            <span>Lisää uusi raakaaine:</span><br/>
             <input type="text" name="raakaaine"/><br/>
-            <input type="submit" value="Lisää raaka-aine"/>
+            <input type="submit" value="Lisää"/>
         </form>
         
-
         
-        <ul>
-            <li>
-                <a href="/home"> Takaisin Menuulle </a>
-            </li>
-            
-        </ul>
+        <br>
+        <br>
+        <p><a href="/home"> Takaisin menuulle </a></p>
+
         
 
         

@@ -7,27 +7,29 @@
     
     <body>
         <h1>Annokset</h1>
+        <p> Lista jo olemassa olevista annoksista:</p>
 
         <ul>
             <li th:each="arvo : ${lista_a}">
                 <p>
                 <span th:text="${arvo.nimi}"> </span>
-                <form method = "POST" th:action="@{~/annos/{arvoId}/delete(arvoId=${arvo.id})}"><input type="submit" value="Poista annos" /></form>
+                <form method = "POST" th:action="@{~/annos/{arvoId}/delete(arvoId=${arvo.id})}"><input type="submit" value="Poista" /></form>
                 </p>
             </li>
         </ul>
         
+         <br>
+        <p> Lisää uusi annos:</p>
         <form method="POST" action="/annos">
-            <span>Lisää uusi annos:</span><br/>
             <input type="text" name="annos"/><br/>
-            <input type="submit" value="Lisää annos"/>
+            <input type="submit" value="Lisää"/>
         </form>
        
 
- 
-        <h4>Lisää raaka-aineita annoksiin</h4>
+        <br>
+        <p>Lisää raaka-aineita annoksiin:</p>
         
- 
+        
          <form method="POST" action="/annosraakaaine">
             Annoksen nimi:<br/>
             <select name="annos">
@@ -50,12 +52,9 @@
         
         <br>
         <br>
-         <ul>
-            <li>
-                <!-- Siiry takaisin home-viewiin -->
-                <a href="/home"> Takaisin Menuulle </a>
-            </li>
-        </ul>
+
+        <p><a href="/home"> Takaisin menuulle </a></p>
+
         
         
     </body>
