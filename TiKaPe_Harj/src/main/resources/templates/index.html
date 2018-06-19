@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Menu</title>
+    </head>
+    
+    <body>
+        <h1>Menu</h1>
+        
+        
+        <!--<p th:text="${lista}">
+            :D
+        </p> -->
+        
+        <ul>
+            <li th:each="arvo : ${lista}">
+                
+                <a th:href="@{~/annokset/{arvoId}(arvoId=${arvo.id})}"> 
+                    <span th:text="${arvo.nimi}"> </span> </a>
+
+            </li>
+        </ul>
+        
+        
+        <br>
+        <ul>
+            <li>
+                <a href="/annos"> Luo uusia annoksia ja lisää raaka-aineita annoksiin </a>
+            </li>
+            
+            <li>
+                <!-- Tarkastele ja lisää aineksia drinkkeihin -->
+                <a href="/raakaaine"> Luo uusia raaka-aineita</a>
+            </li>
+             <li>
+                <!-- Tarkastele ja lisää aineksia drinkkeihin -->
+                <a href="/raakaainetilastot"> Katso tilastoja raaka-aineille</a>
+            </li>
+        </ul>
+        
+
+  
+        
+        
+        
+    </body>
+    
+</html>

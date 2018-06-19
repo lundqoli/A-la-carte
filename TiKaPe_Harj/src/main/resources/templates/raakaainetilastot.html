@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Raaka-aineet Tilasto</title>
+    </head>
+    
+    <body>
+        <h1>Raaka-ainee tilasto</h1>
+        <p> Käytetyt raakaaineet<p>
+        
+        
+        <ul>
+            <li th:each="arvo : ${lista}">
+                <p>
+                <span th:text="${arvo.nimi}"> </span>
+                on käytetty
+                <span th:text="${arvo.maara}"> </span>
+                annoksessa
+                </p>
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <a href="/home"> Takaisin Menuulle </a>
+            </li>
+            
+        </ul>
+        
+
+        
+    </body>
+    
+</html>

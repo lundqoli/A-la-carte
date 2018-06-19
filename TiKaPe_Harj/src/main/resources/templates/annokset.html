@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Resepti</title>
+    </head>
+    
+    <body>
+        <h1>Annokset</h1>
+        
+       <ul>
+            <li th:each="arvo : ${lista}">
+                <p>
+                <span th:text="${arvo.raakaaine}"> </span>
+                <span th:text="${arvo.maara}"> </span>
+                <span th:text="${arvo.ohje}"> </span>
+                <form method = "POST" th:action="@{~/raakaaineannos/{aid}/delete(aid=${arvo.id})}"><input type="submit" value="Poista ohje" /></form>
+                </p>
+                
+            </li>
+        </ul>
+        
+        
+ 
+         <ul>
+            <li>
+                <!-- Siiry takaisin home-viewiin -->
+                <a href="/home"> Takaisin Menuulle </a>
+            </li>
+        </ul>
+        
+        
+    </body>
+    
+</html>

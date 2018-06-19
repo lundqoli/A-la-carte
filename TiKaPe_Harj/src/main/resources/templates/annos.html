@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Annokset</title>
+    </head>
+    
+    <body>
+        <h1>Annokset</h1>
+
+        <ul>
+            <li th:each="arvo : ${lista_a}">
+                <p>
+                <span th:text="${arvo.nimi}"> </span>
+                <form method = "POST" th:action="@{~/annos/{arvoId}/delete(arvoId=${arvo.id})}"><input type="submit" value="Poista annos" /></form>
+                </p>
+            </li>
+        </ul>
+        
+        <form method="POST" action="/annos">
+            <span>Lisää uusi annos:</span><br/>
+            <input type="text" name="annos"/><br/>
+            <input type="submit" value="Lisää annos"/>
+        </form>
+       
+
+ 
+        <h4>Lisää raaka-aineita annoksiin</h4>
+        
+ 
+         <form method="POST" action="/annosraakaaine">
+            Annoksen nimi:<br/>
+            <select name="annos">
+            <option th:each="arvo : ${lista_a}" name="${arvo.id}" th:text ="${arvo.nimi}"></option>
+            </select>
+            <br/>
+            Raaka-aineen nimi:<br/>
+            <select name="raakaaine">
+            <option th:each="arvo_r : ${lista_r}" name="${arvo_r.id}" th:text ="${arvo_r.nimi}"></option>
+            </select>
+            <br/>
+            Järjestys<br/>
+            <input type="text" name="jarjestys"/><br/>
+            Määrä<br/>
+            <input type="text" name="maara"/><br/>
+            Ohje<br/>
+            <input type="text" name ="ohje"/><br/>
+            <input type="submit" value="Lisää"/>
+        </form>
+        
+        <br>
+        <br>
+         <ul>
+            <li>
+                <!-- Siiry takaisin home-viewiin -->
+                <a href="/home"> Takaisin Menuulle </a>
+            </li>
+        </ul>
+        
+        
+    </body>
+    
+</html>
